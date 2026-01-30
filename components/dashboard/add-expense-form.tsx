@@ -78,7 +78,6 @@ export function AddExpensePanel({
 
     onAddExpense(newExpense);
 
-    // Reset form
     setDescription("");
     setAmount("");
     setPaidBy(currentUser);
@@ -91,7 +90,6 @@ export function AddExpensePanel({
     <AnimatePresence>
       {isOpen && (
         <>
-          {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -100,7 +98,6 @@ export function AddExpensePanel({
             className="fixed inset-0 bg-[#2B231C]/40 backdrop-blur-sm z-40"
           />
 
-          {/* Panel */}
           <motion.div
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
@@ -108,7 +105,6 @@ export function AddExpensePanel({
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
             className="fixed right-0 top-0 bottom-0 w-full max-w-md bg-[#FDFBF7] border-l border-[#2B231C]/10 shadow-2xl z-50 overflow-y-auto"
           >
-            {/* Header */}
             <div className="sticky top-0 bg-[#FDFBF7]/95 backdrop-blur-sm border-b border-[#2B231C]/10 p-8 z-10">
               <div className="flex items-center justify-between">
                 <div>
@@ -140,9 +136,7 @@ export function AddExpensePanel({
               </div>
             </div>
 
-            {/* Form */}
             <div className="p-8 space-y-8">
-              {/* Description */}
               <div className="space-y-2">
                 <label
                   htmlFor="description"
@@ -166,7 +160,6 @@ export function AddExpensePanel({
                 )}
               </div>
 
-              {/* Amount */}
               <div className="space-y-2">
                 <label
                   htmlFor="amount"
@@ -193,7 +186,6 @@ export function AddExpensePanel({
                 )}
               </div>
 
-              {/* Paid by */}
               <div className="space-y-3">
                 <label className="text-sm font-medium text-[#5C4B3C]/70">
                   Who paid?
@@ -218,7 +210,6 @@ export function AddExpensePanel({
                 </div>
               </div>
 
-              {/* Split among */}
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
                   <label className="text-sm font-medium text-[#5C4B3C]/70">
@@ -283,7 +274,6 @@ export function AddExpensePanel({
               </div>
             </div>
 
-            {/* Footer */}
             <div className="sticky bottom-0 bg-[#FDFBF7]/95 backdrop-blur-sm border-t border-[#2B231C]/10 p-8">
               <div className="flex gap-3">
                 <button

@@ -116,7 +116,6 @@ export default function SignupPage() {
 
   return (
     <main className="h-screen flex bg-[#FDFBF7]">
-      {/* Success overlay */}
       <AnimatePresence>
         {showSuccess && (
           <motion.div
@@ -143,9 +142,7 @@ export default function SignupPage() {
         )}
       </AnimatePresence>
 
-      {/* Left side - Info */}
       <div className="hidden lg:flex lg:w-1/2 relative bg-[#F4EDE3] items-center justify-center p-16 overflow-hidden">
-        {/* Subtle background */}
         <motion.div
           className="absolute -top-20 -left-20 w-96 h-96 bg-[#C9955C]/10 rounded-full blur-3xl"
           animate={{ scale: [1, 1.1, 1], rotate: [0, 90, 0] }}
@@ -158,7 +155,6 @@ export default function SignupPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            {/* Logo */}
             <Link href="/" className="inline-flex items-center gap-2 mb-12">
               <span className="text-3xl font-semibold text-[#2B231C]">
                 BillSplitSafe
@@ -187,7 +183,6 @@ export default function SignupPage() {
               stressing about shared expenses.
             </p>
 
-            {/* Step indicators */}
             <div className="space-y-5">
               {steps.map((step, i) => (
                 <motion.div
@@ -221,7 +216,6 @@ export default function SignupPage() {
               ))}
             </div>
 
-            {/* Bottom note */}
             <motion.div
               className="mt-12 p-5 bg-white/60 backdrop-blur-sm rounded-xl border border-[#2B231C]/10"
               initial={{ opacity: 0 }}
@@ -237,7 +231,6 @@ export default function SignupPage() {
         </div>
       </div>
 
-      {/* Right side - Form */}
       <div className="w-full lg:w-1/2 flex items-center justify-center px-8 py-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -245,7 +238,6 @@ export default function SignupPage() {
           transition={{ duration: 0.7, ease: [0.33, 1, 0.68, 1] }}
           className="w-full max-w-md"
         >
-          {/* Mobile logo */}
           <div className="lg:hidden text-center mb-12">
             <Link href="/" className="inline-flex items-center gap-2">
               <span className="text-2xl font-semibold text-[#2B231C]">
@@ -258,7 +250,6 @@ export default function SignupPage() {
             </Link>
           </div>
 
-          {/* Progress bar */}
           <div className="mb-10">
             <div className="flex items-center gap-2 mb-3">
               <div className="w-8 h-0.5 bg-[#C9955C]" />
@@ -276,7 +267,6 @@ export default function SignupPage() {
             </div>
           </div>
 
-          {/* Header */}
           <div className="mb-10">
             <h1 className="text-5xl font-semibold text-[#2B231C] mb-4 tracking-tight">
               {currentStep === 1 && "Pick a username"}
@@ -290,7 +280,6 @@ export default function SignupPage() {
             </p>
           </div>
 
-          {/* Form content */}
           <AnimatePresence mode="wait">
             <motion.div
               key={currentStep}
@@ -300,7 +289,6 @@ export default function SignupPage() {
               transition={{ duration: 0.3 }}
               className="space-y-6"
             >
-              {/* Step 1: Username */}
               {currentStep === 1 && (
                 <div className="space-y-2">
                   <label
@@ -336,7 +324,6 @@ export default function SignupPage() {
                 </div>
               )}
 
-              {/* Step 2: Email */}
               {currentStep === 2 && (
                 <div className="space-y-2">
                   <label
@@ -372,7 +359,6 @@ export default function SignupPage() {
                 </div>
               )}
 
-              {/* Step 3: Password */}
               {currentStep === 3 && (
                 <div className="space-y-4">
                   <div className="space-y-2">
@@ -451,7 +437,6 @@ export default function SignupPage() {
                     )}
                   </div>
 
-                  {/* Password strength */}
                   {formData.password && (
                     <div className="space-y-2">
                       <div className="flex gap-2">

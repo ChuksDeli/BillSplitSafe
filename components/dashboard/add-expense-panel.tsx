@@ -137,9 +137,9 @@ export function AddExpensePanel({
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 30, stiffness: 300 }}
-            className="fixed right-0 top-0 bottom-0 w-full sm:w-[500px] bg-white shadow-2xl z-50 flex flex-col"
+            className="fixed right-0 top-0 bottom-0 w-full sm:w-125 bg-white shadow-2xl z-50 flex flex-col"
           >
-            <div className="p-6 border-b border-[#2B231C]/8 flex-shrink-0">
+            <div className="p-6 border-b border-[#2B231C]/8 shrink-0">
               <div className="flex items-center justify-between">
                 <h2 className="text-2xl font-semibold text-[#2B231C]">
                   Add Expense
@@ -154,7 +154,6 @@ export function AddExpensePanel({
             </div>
 
             <div className="flex-1 overflow-y-auto p-6 space-y-5">
-              {/* Description */}
               <div>
                 <label className="block text-sm font-medium text-[#5C4B3C] mb-2">
                   What was it for?
@@ -177,7 +176,6 @@ export function AddExpensePanel({
                 )}
               </div>
 
-              {/* Amount & Currency */}
               <div className="grid grid-cols-2 gap-3">
                 <div>
                   <label className="block text-sm font-medium text-[#5C4B3C] mb-2">
@@ -225,7 +223,6 @@ export function AddExpensePanel({
                 </div>
               </div>
 
-              {/* Date */}
               <div>
                 <label className="block text-sm font-medium text-[#5C4B3C] mb-2">
                   When? (optional)
@@ -238,7 +235,6 @@ export function AddExpensePanel({
                 />
               </div>
 
-              {/* Participants */}
               <div>
                 <label className="block text-sm font-medium text-[#5C4B3C] mb-2">
                   Split with who?
@@ -308,7 +304,6 @@ export function AddExpensePanel({
                 )}
               </div>
 
-              {/* Who Paid */}
               <div>
                 <label className="block text-sm font-medium text-[#5C4B3C] mb-2">
                   Who paid for this?
@@ -326,7 +321,6 @@ export function AddExpensePanel({
                 </select>
               </div>
 
-              {/* Split Summary */}
               <div className="p-4 bg-[#F4EDE3] rounded-lg">
                 <p className="text-xs text-[#5C4B3C]/60 mb-1">Split equally:</p>
                 <p className="text-lg font-semibold text-[#2B231C]">
@@ -341,7 +335,7 @@ export function AddExpensePanel({
               </div>
             </div>
 
-            <div className="p-6 border-t border-[#2B231C]/8 flex gap-3 flex-shrink-0">
+            <div className="p-6 border-t border-[#2B231C]/8 flex gap-3 shrink-0">
               <button
                 onClick={handleClose}
                 className="flex-1 px-6 py-3 border-2 border-[#2B231C]/10 text-[#5C4B3C] font-medium rounded-lg hover:border-[#C9955C] hover:bg-[#F4EDE3] transition-all"

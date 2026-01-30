@@ -97,9 +97,6 @@ export default function DashboardPage() {
     );
   }
 
-  // ===============================
-  // Calculations by currency
-  // ===============================
   const unpaid = expenses.filter((e) => !e.isPaid);
 
   const currencyBalances: { [currency: string]: CurrencyBalance } = {};
@@ -218,7 +215,7 @@ export default function DashboardPage() {
     <main className="min-h-screen bg-[#FDFBF7]">
       <Navbar />
 
-      <div className="pt-32 px-8 lg:px-20 max-w-[1800px] mx-auto pb-20">
+      <div className="pt-32 px-8 lg:px-20 max-w-450 mx-auto pb-20">
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -227,7 +224,7 @@ export default function DashboardPage() {
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
             <div>
               <div className="flex items-baseline gap-3 mb-4">
-                <div className="w-8 h-[2px] bg-[#C9955C]" />
+                <div className="w-8 h-0.5 bg-[#C9955C]" />
                 <span className="text-sm text-[#5C4B3C]/60 tracking-wide">
                   Your dashboard
                 </span>

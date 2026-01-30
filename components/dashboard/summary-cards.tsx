@@ -18,7 +18,6 @@ const CURRENCY_SYMBOLS: { [key: string]: string } = {
   USD: "$",
   GBP: "£",
   EUR: "€",
-  NGN: "₦",
   CAD: "C$",
   AUD: "A$",
 };

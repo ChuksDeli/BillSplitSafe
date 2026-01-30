@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { useState } from "react";
 import {
   IoFastFoodOutline,
   IoCafeOutline,
@@ -12,13 +11,10 @@ import {
 } from "react-icons/io5";
 
 export function HeroSection() {
-  const [activeExpense, setActiveExpense] = useState<number | null>(null);
-
   return (
     <section className="relative min-h-screen bg-[#FDFBF7] overflow-hidden">
-      {/* Organic blob - single accent */}
       <motion.div
-        className="absolute -top-64 right-0 w-[700px] h-[700px] rounded-full opacity-30 blur-3xl"
+        className="absolute -top-64 right-0 w-175 h-175 rounded-full opacity-30 blur-3xl"
         style={{
           background: "radial-gradient(circle, #D4A574 0%, transparent 70%)",
         }}
@@ -29,25 +25,21 @@ export function HeroSection() {
         transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      <div className="relative max-w-[1600px] mx-auto px-8 lg:px-20 min-h-screen">
-        {/* Asymmetric grid - 8:4 split */}
+      <div className="relative max-w-400 mx-auto px-8 lg:px-20 min-h-screen">
         <div className="grid lg:grid-cols-12 gap-16 py-24 lg:py-0 lg:min-h-screen lg:items-center">
-          {/* Left column - 8 units */}
           <div className="lg:col-span-8 space-y-14 lg:pr-12">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: [0.33, 1, 0.68, 1] }}
             >
-              {/* Small intro text */}
               <div className="flex items-baseline gap-3 mb-10">
-                <div className="w-12 h-[2px] bg-[#5C4B3C]" />
+                <div className="w-12 h-0.5 bg-[#5C4B3C]" />
                 <span className="text-sm text-[#5C4B3C]/60 tracking-wide">
                   Expense tracking for real people
                 </span>
               </div>
 
-              {/* Main headline - relaxed, conversational */}
               <h1 className="text-[clamp(3.5rem,8vw,8.5rem)] font-semibold text-[#2B231C] leading-[0.92] tracking-[-0.03em] mb-10">
                 Stop doing
                 <br />
@@ -56,7 +48,7 @@ export function HeroSection() {
                 <span className="relative inline-block font-light italic">
                   head
                   <motion.div
-                    className="absolute -bottom-3 left-0 right-0 h-[3px] bg-[#C9955C]"
+                    className="absolute -bottom-3 left-0 right-0 h-0.75 bg-[#C9955C]"
                     initial={{ scaleX: 0, originX: 0 }}
                     animate={{ scaleX: 1 }}
                     transition={{ duration: 0.8, delay: 0.4 }}
@@ -64,18 +56,16 @@ export function HeroSection() {
                 </span>
               </h1>
 
-              {/* Description - natural language */}
-              <p className="text-[21px] text-[#5C4B3C]/80 leading-[1.65] max-w-[580px] mb-12 font-light">
+              <p className="text-[21px] text-[#5C4B3C]/80 leading-[1.65] max-w-145 mb-12 font-light">
                 Track who paid for what. See who owes you. Remind friends
                 without being annoying. All the split-bill stuff, none of the
                 spreadsheet headaches.
               </p>
 
-              {/* CTAs - different approach */}
               <div className="flex flex-wrap items-center gap-5">
                 <Link href="/signup">
                   <motion.button
-                    className="px-9 py-[18px] bg-[#2B231C] text-[#FDFBF7] font-medium rounded-md 
+                    className="px-9 py-4.5 bg-[#2B231C] text-[#FDFBF7] font-medium rounded-md 
                              hover:bg-[#3D332A] transition-colors shadow-lg shadow-[#2B231C]/20"
                     whileHover={{ y: -2 }}
                     whileTap={{ scale: 0.98 }}
@@ -85,13 +75,12 @@ export function HeroSection() {
                 </Link>
 
                 <Link href="/login">
-                  <button className="px-9 py-[18px] text-[#5C4B3C] font-medium hover:text-[#2B231C] transition-colors">
+                  <button className="px-9 py-4.5 text-[#5C4B3C] font-medium hover:text-[#2B231C] transition-colors">
                     I already have an account →
                   </button>
                 </Link>
               </div>
 
-              {/* Simple trust line */}
               <div className="flex items-center gap-6 pt-10 text-[15px] text-[#5C4B3C]/50">
                 <span>Free to use</span>
                 <span>·</span>
@@ -102,7 +91,6 @@ export function HeroSection() {
             </motion.div>
           </div>
 
-          {/* Right column - 4 units, pushed down */}
           <div className="lg:col-span-4 lg:pt-32">
             <motion.div
               className="relative"
@@ -114,7 +102,6 @@ export function HeroSection() {
                 ease: [0.33, 1, 0.68, 1],
               }}
             >
-              {/* Main demo card - simpler, cleaner */}
               <div className="bg-white rounded-2xl p-7 shadow-xl shadow-[#2B231C]/8 border border-[#2B231C]/8">
                 {/* Header */}
                 <div className="flex items-center justify-between mb-6 pb-6 border-b border-[#2B231C]/8">
@@ -129,7 +116,6 @@ export function HeroSection() {
                   <IoWalletOutline className="text-[#C9955C] text-4xl" />
                 </div>
 
-                {/* Expenses list - more realistic */}
                 <div className="space-y-3">
                   {[
                     {
@@ -168,8 +154,6 @@ export function HeroSection() {
                       initial={{ opacity: 0, x: -15 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.4 + i * 0.08 }}
-                      onMouseEnter={() => setActiveExpense(i)}
-                      onMouseLeave={() => setActiveExpense(null)}
                       whileHover={{ x: 3 }}
                     >
                       <div className="flex items-start gap-3 flex-1">
@@ -201,7 +185,6 @@ export function HeroSection() {
                   ))}
                 </div>
 
-                {/* Simple add button */}
                 <motion.button
                   className="w-full mt-5 py-3.5 border border-dashed border-[#2B231C]/20 
                            rounded-lg text-sm text-[#5C4B3C]/60 hover:text-[#2B231C] 
@@ -215,7 +198,6 @@ export function HeroSection() {
                 </motion.button>
               </div>
 
-              {/* Small summary cards - different layout */}
               <motion.div
                 className="grid grid-cols-2 gap-3 mt-4"
                 initial={{ opacity: 0, y: 15 }}
@@ -240,7 +222,6 @@ export function HeroSection() {
                 </div>
               </motion.div>
 
-              {/* Handwritten-style note */}
               <motion.div
                 className="mt-5 p-4 bg-[#FFF9E6] border-l-4 border-[#C9955C] rounded-r-lg"
                 initial={{ opacity: 0, rotate: -1 }}

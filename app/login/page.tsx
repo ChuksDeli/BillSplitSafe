@@ -74,7 +74,6 @@ function LoginForm() {
 
   return (
     <main className="min-h-screen flex bg-[#FDFBF7]">
-      {/* Success notification */}
       <AnimatePresence>
         {showSuccess && (
           <motion.div
@@ -94,7 +93,6 @@ function LoginForm() {
         )}
       </AnimatePresence>
 
-      {/* Left side - Form */}
       <div className="w-full lg:w-1/2 flex items-center justify-center px-8 py-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -102,7 +100,6 @@ function LoginForm() {
           transition={{ duration: 0.7, ease: [0.33, 1, 0.68, 1] }}
           className="w-full max-w-md"
         >
-          {/* Mobile logo */}
           <div className="lg:hidden text-center mb-12">
             <Link href="/" className="inline-flex items-center gap-2">
               <span className="text-2xl font-semibold text-[#2B231C]">
@@ -115,7 +112,6 @@ function LoginForm() {
             </Link>
           </div>
 
-          {/* Header */}
           <div className="mb-10">
             <div className="flex items-baseline gap-3 mb-6">
               <div className="w-8 h-0.5 bg-[#C9955C]" />
@@ -131,9 +127,7 @@ function LoginForm() {
             </p>
           </div>
 
-          {/* Form */}
           <div className="space-y-6">
-            {/* Username */}
             <div className="space-y-2">
               <label
                 htmlFor="username"
@@ -166,7 +160,6 @@ function LoginForm() {
               )}
             </div>
 
-            {/* Password */}
             <div className="space-y-2">
               <label
                 htmlFor="password"
@@ -242,7 +235,6 @@ function LoginForm() {
               )}
             </div>
 
-            {/* Submit button */}
             <motion.button
               type="button"
               onClick={handleSubmit}
@@ -267,7 +259,6 @@ function LoginForm() {
             </motion.button>
           </div>
 
-          {/* Footer */}
           <div className="mt-10 pt-8 border-t border-[#2B231C]/10">
             <p className="text-center text-sm text-[#5C4B3C]/70 mb-4">
               Don&apos;t have an account yet?
@@ -281,9 +272,7 @@ function LoginForm() {
         </motion.div>
       </div>
 
-      {/* Right side - Info panel */}
       <div className="hidden lg:flex lg:w-1/2 relative bg-[#F4EDE3] items-center justify-center p-16 overflow-hidden">
-        {/* Subtle background element */}
         <motion.div
           className="absolute top-0 right-0 w-96 h-96 bg-[#C9955C]/10 rounded-full blur-3xl"
           animate={{ scale: [1, 1.2, 1], x: [0, 30, 0] }}
@@ -296,7 +285,6 @@ function LoginForm() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            {/* Logo */}
             <Link href="/" className="inline-flex items-center gap-2 mb-12">
               <span className="text-3xl font-semibold text-[#2B231C]">
                 BillSplitSafe
@@ -310,7 +298,7 @@ function LoginForm() {
                   ease: "easeInOut",
                 }}
               >
-                💸
+                <IoWalletOutline className="text-xl text-[#C9955C]" />
               </motion.span>
             </Link>
 
@@ -325,7 +313,6 @@ function LoginForm() {
               math, no awkward conversations.
             </p>
 
-            {/* Features */}
             <div className="space-y-4">
               {[
                 "Split bills instantly",
@@ -347,7 +334,6 @@ function LoginForm() {
               ))}
             </div>
 
-            {/* Testimonial card */}
             <motion.div
               className="mt-12 p-6 bg-white/60 backdrop-blur-sm rounded-2xl border border-[#2B231C]/10"
               initial={{ opacity: 0, y: 20 }}

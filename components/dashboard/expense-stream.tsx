@@ -16,7 +16,6 @@ const CURRENCY_SYMBOLS: { [key: string]: string } = {
   USD: "$",
   GBP: "£",
   EUR: "€",
-  NGN: "₦",
   CAD: "C$",
   AUD: "A$",
 };
@@ -140,7 +139,7 @@ export function ExpenseStream({
 
                         <div className="flex-1 min-w-0">
                           <div className="flex items-start md:items-center gap-2 flex-wrap mb-1">
-                            <h4 className="font-semibold text-base md:text-lg text-[#2B231C] break-words">
+                            <h4 className="font-semibold text-base md:text-lg text-[#2B231C] wrap-break-word">
                               {expense.description}
                             </h4>
                             {expense.isPaid && (
