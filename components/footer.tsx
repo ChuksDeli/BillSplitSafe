@@ -13,7 +13,6 @@ export function Footer() {
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
-    { href: "/dashboard", label: "dashboard" },
     ...(!isLoggedIn
       ? [
           { href: "/signup", label: "Sign up" },
