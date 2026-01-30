@@ -23,11 +23,19 @@ const CURRENCY_SYMBOLS: { [key: string]: string } = {
   AUD: "A$",
 };
 
+type CardType = "total" | "owe" | "owed";
+
 export function SummaryCards({ currencyBalances }: SummaryCardsProps) {
   const currencies = Object.keys(currencyBalances);
   const hasCurrencies = currencies.length > 0;
 
-  const cards = [
+  const cards: Array<{
+    title: string;
+    type: CardType;
+    icon: typeof HiChartBar;
+    bgColor: string;
+    iconColor: string;
+  }> = [
     {
       title: "Total Expenses",
       type: "total",
@@ -50,6 +58,12 @@ export function SummaryCards({ currencyBalances }: SummaryCardsProps) {
       iconColor: "text-[#7A9B76]",
     },
   ];
+
+  const getCardValue = (balance: CurrencyBalance, type: CardType): number => {
+    if (type === "total") return balance.total;
+    if (type === "owe") return balance.youOwe;
+    return balance.youAreOwed;
+  };
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
@@ -89,7 +103,7 @@ export function SummaryCards({ currencyBalances }: SummaryCardsProps) {
             ) : currencies.length === 1 ? (
               <div>
                 <motion.p
-                  key={currencyBalances[currencies[0]][card.type]}
+                  key={getCardValue(currencyBalances[currencies[0]], card.type)}
                   initial={{ scale: 1.1 }}
                   animate={{ scale: 1 }}
                   className={`text-4xl font-bold ${
@@ -103,11 +117,10 @@ export function SummaryCards({ currencyBalances }: SummaryCardsProps) {
                   }`}
                 >
                   {CURRENCY_SYMBOLS[currencies[0]] || "$"}
-                  {card.type === "total"
-                    ? currencyBalances[currencies[0]].total.toFixed(2)
-                    : card.type === "owe"
-                      ? currencyBalances[currencies[0]].youOwe.toFixed(2)
-                      : currencyBalances[currencies[0]].youAreOwed.toFixed(2)}
+                  {getCardValue(
+                    currencyBalances[currencies[0]],
+                    card.type,
+                  ).toFixed(2)}
                 </motion.p>
                 <p className="text-xs text-[#5C4B3C]/50 mt-2">
                   {card.type === "total"
@@ -132,11 +145,9 @@ export function SummaryCards({ currencyBalances }: SummaryCardsProps) {
                       }`}
                     >
                       {CURRENCY_SYMBOLS[curr] || "$"}
-                      {card.type === "total"
-                        ? currencyBalances[curr].total.toFixed(2)
-                        : card.type === "owe"
-                          ? currencyBalances[curr].youOwe.toFixed(2)
-                          : currencyBalances[curr].youAreOwed.toFixed(2)}
+                      {getCardValue(currencyBalances[curr], card.type).toFixed(
+                        2,
+                      )}
                     </p>
                     <span className="text-xs text-[#5C4B3C]/50">{curr}</span>
                   </div>

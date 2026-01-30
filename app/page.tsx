@@ -108,7 +108,6 @@ export default function HomePage() {
                   ? `You have ${stats.activeExpenses} active ${stats.activeExpenses === 1 ? "expense" : "expenses"} to manage.`
                   : "You're all caught up! No active expenses right now."}
               </p>
-
               <Link href="/dashboard">
                 <motion.button
                   className="px-10 py-5 bg-[#2B231C] text-white font-medium rounded-lg hover:bg-[#3D332A] transition-colors shadow-lg shadow-[#2B231C]/20 inline-flex items-center gap-3"
